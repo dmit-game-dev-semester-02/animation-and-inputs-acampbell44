@@ -6,7 +6,7 @@ namespace assignment01_animation_and_inputs;
 /// <summary>
 /// Represents a cel animated texture.
 /// </summary>
-public class CelAnimationSequence
+public class CelAnimationSequenceMultirow
 {
     // The texture containing the animation sequence...
     protected Texture2D texture;
@@ -24,7 +24,7 @@ public class CelAnimationSequence
     /// <summary>
     /// Constructs a new CelAnimationSequence.
     /// </summary>        
-    public CelAnimationSequence(Texture2D texture, int celWidth, float celTime)
+    public CelAnimationSequenceMultirow(Texture2D texture, int celWidth, float celTime)
     {
         this.texture = texture;
         this.celWidth = celWidth;

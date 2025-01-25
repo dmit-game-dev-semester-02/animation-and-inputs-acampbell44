@@ -8,7 +8,7 @@ namespace assignment01_animation_and_inputs;
 /// Controls playback of a CelAnimationSequence.
 /// // Note: a CelAnimationPlayer can onley play one animation at a time.
 /// </summary>
-public class CelAnimationPlayer
+public class CelAnimationPlayerMultiRow
 {
     private CelAnimationSequence celAnimationSequence;
     private int celIndex;
