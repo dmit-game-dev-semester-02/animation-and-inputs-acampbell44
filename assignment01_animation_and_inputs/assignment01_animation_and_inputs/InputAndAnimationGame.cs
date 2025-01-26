@@ -6,16 +6,19 @@ namespace assignment01_animation_and_inputs;
 
 public class InputAndAnimationGame : Game
 {
-    private const int _WindowWidth = 640;
-    private const int _WindowHeight = 320;
+    private const int _WindowWidth = 272;
+    private const int _WindowHeight = 160;
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
 
     private Texture2D _background, _foreground;
-    private CelAnimationSequence _sequence01;//, _sequence02;
-    private CelAnimationPlayer _animation01;//, _animation02;
-
-
+    private CelAnimationSequence _sequence01;
+    private CelAnimationPlayer _animation01;
+    private CelAnimationSequenceMultiRow _flyingSequenceLeft;
+    private CelAnimationSequenceMultiRow _flyingSequenceRight;
+    private CelAnimationSequenceMultiRow _flyingSequenceUp;
+    private CelAnimationSequenceMultiRow _flyingSequenceDown;
+    private CelAnimationPlayerMultiRow _flyingAnimation;
     
 
     public InputAndAnimationGame()
@@ -38,21 +41,31 @@ public class InputAndAnimationGame : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
     _background = Content.Load<Texture2D>("parallax-mountain-bg");
-    _foreground = Content.Load<Texture2D>("parallax-mountain-mountain-far");
-    Texture2D spriteSheet = Content.Load<Texture2D>("animated_torch");
+    _foreground = Content.Load<Texture2D>("mountain-fair");
+    Texture2D torch = Content.Load<Texture2D>("animated_torch");
        //pass the constructor the spritesheet, the width of each cel,
        //and the amount of time to display each cell
 
-       _sequence01 = new CelAnimationSequence(spriteSheet, 32, 1 / 8f);
+       _sequence01 = new CelAnimationSequence(torch, 32, 1 / 8f);
 
       _animation01 = new CelAnimationPlayer();
       _animation01.Play(_sequence01);
-        // TODO: use this.Content to load your game content here
+
+    Texture2D spriteSheet = Content.Load<Texture2D>("Flying");
+    _flyingSequenceLeft = new CelAnimationSequenceMultiRow(spriteSheet, 32, 32, 1/8f, 3);
+    _flyingAnimation = new CelAnimationPlayerMultiRow();
+    _flyingAnimation.Play(_flyingSequenceLeft);
+    //_flyingSequenceRight = new CelAnimationSequenceMultiRow(spriteSheet, 32, 32, 1/8f, 1);
+    //_flyingSequenceUp = new CelAnimationSequenceMultiRow(spriteSheet, 32, 32, 1/8f, 2);
+    //_flyingSequenceDown = new CelAnimationSequenceMultiRow(spriteSheet, 32, 32, 1/8f, 0);
+    
+        // TODO: u = new Cese this.Content to load your game content here
     }
 
     protected override void Update(GameTime gameTime)
     {
         _animation01.Update(gameTime);
+        _flyingAnimation.Update(gameTime);
 
         // TODO: Add your update logic here
 
@@ -66,6 +79,7 @@ public class InputAndAnimationGame : Game
         _spriteBatch.Draw(_background, Vector2.Zero, Color.White);
         _spriteBatch.Draw(_foreground, Vector2.Zero, Color.White);
        _animation01.Draw(_spriteBatch, Vector2.Zero, SpriteEffects.None);
+       _flyingAnimation.Draw(_spriteBatch, Vector2.Zero, SpriteEffects.None );
        _spriteBatch.End();
 
         base.Draw(gameTime);

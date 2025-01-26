@@ -10,15 +10,16 @@ namespace assignment01_animation_and_inputs;
 /// </summary>
 public class CelAnimationPlayerMultiRow
 {
-    private CelAnimationSequence celAnimationSequence;
+    private CelAnimationSequenceMultiRow celAnimationSequence;
     private int celIndex;
+
     private float celTimeElapsed;
     private Rectangle celSourceRectangle;
 
     /// <summary>
     /// Begins or continues playback of a CelAnimationSequence.
     /// </summary>
-    public void Play(CelAnimationSequence celAnimationSequence)
+    public void Play(CelAnimationSequenceMultiRow celAnimationSequence)
     {
         if (celAnimationSequence == null)
         {
@@ -32,7 +33,7 @@ public class CelAnimationPlayerMultiRow
             celTimeElapsed = 0.0f;
 
             celSourceRectangle.X = 0;
-            celSourceRectangle.Y = 0;
+            celSourceRectangle.Y = celAnimationSequence.RowToAnimate * celAnimationSequence.CelHeight;
             celSourceRectangle.Width = this.celAnimationSequence.CelWidth;
             celSourceRectangle.Height = this.celAnimationSequence.CelHeight;
         }
@@ -51,6 +52,7 @@ public class CelAnimationPlayerMultiRow
             if (celTimeElapsed >= celAnimationSequence.CelTime)
             {
                 celTimeElapsed -= celAnimationSequence.CelTime;
+
 
                 // Advance the frame index looping as appropriate...
                 celIndex = (celIndex + 1) % celAnimationSequence.CelCount;

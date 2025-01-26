@@ -28,4 +28,4 @@ C:\Github\animation-and-inputs-acampbell44\assignment01_animation_and_inputs\ass
 C:\Github\animation-and-inputs-acampbell44\assignment01_animation_and_inputs\assignment01_animation_and_inputs\bin\Debug\net8.0\Content\goblin.xnb
 C:\Github\animation-and-inputs-acampbell44\assignment01_animation_and_inputs\assignment01_animation_and_inputs\bin\Debug\net8.0\Content\parallax-mountain-bg.xnb
 C:\Github\animation-and-inputs-acampbell44\assignment01_animation_and_inputs\assignment01_animation_and_inputs\bin\Debug\net8.0\Content\animated_torch.xnb
-C:\Github\animation-and-inputs-acampbell44\assignment01_animation_and_inputs\assignment01_animation_and_inputs\bin\Debug\net8.0\Content\parallax-mountain-montain-far.xnb
+C:\Github\animation-and-inputs-acampbell44\assignment01_animation_and_inputs\assignment01_animation_and_inputs\bin\Debug\net8.0\Content\mountain-fair.xnb

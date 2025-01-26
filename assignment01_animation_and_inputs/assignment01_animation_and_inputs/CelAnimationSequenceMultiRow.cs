@@ -6,7 +6,7 @@ namespace assignment01_animation_and_inputs;
 /// <summary>
 /// Represents a cel animated texture.
 /// </summary>
-public class CelAnimationSequenceMultirow
+public class CelAnimationSequenceMultiRow
 {
     // The texture containing the animation sequence...
     protected Texture2D texture;
@@ -20,18 +20,27 @@ public class CelAnimationSequenceMultirow
 
     // Calculated count of cels in the sequence
     protected int celCount;
+    protected int celColumnCount;
+    protected int celRowCount;
+    protected int rowToAnimate;
 
     /// <summary>
     /// Constructs a new CelAnimationSequence.
     /// </summary>        
-    public CelAnimationSequenceMultirow(Texture2D texture, int celWidth, float celTime)
+    public CelAnimationSequenceMultiRow(Texture2D texture, int celWidth, int celHeight, float celTime, int rowToAnimate)
     {
+
         this.texture = texture;
         this.celWidth = celWidth;
         this.celTime = celTime;
-
+        this.celHeight = celHeight; //celHeight has to be passed as a paramete
+        this.rowToAnimate = rowToAnimate;
         celHeight = Texture.Height;
         celCount = Texture.Width / celWidth;
+        celColumnCount = Texture.Width / celWidth;
+        celRowCount = Texture.Height / celHeight;
+        
+        
     }
 
     /// <summary>
@@ -72,5 +81,10 @@ public class CelAnimationSequenceMultirow
     public int CelHeight
     {
         get { return celHeight; }
+    }
+
+    public int RowToAnimate
+    {
+        get { return rowToAnimate;}
     }
 }
